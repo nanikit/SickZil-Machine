@@ -1,0 +1,5 @@
+{
+  "python.autoComplete.extraPaths": ["./src"],
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.formatting.autopep8Args": []
+}
