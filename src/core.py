@@ -17,7 +17,8 @@ def set_limits(slimit, climit):
 def load_model(mpath, version):
     #graph_def = tf.GraphDef()
     graph_def = tf.compat.v1.GraphDef()
-    #with tf.gfile.GFile(mpath, 'rb') as f:
+    if not os.path.isfile(mpath):
+        raise RuntimeError(f'Model is not found. Download it from the repository: {mpath}')
     with tf.io.gfile.GFile(mpath, 'rb') as f:
         graph_def.ParseFromString(f.read())
         tf.import_graph_def(
